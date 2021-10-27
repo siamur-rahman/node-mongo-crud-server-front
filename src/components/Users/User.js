@@ -15,7 +15,7 @@ const Users = () => {
          .then(data => setUsers(data));
    }, [])
 
-   //Delete an user
+   //Delete an userr
 
    const handleDeleteUser = id => {
       const url = `http://localhost:5000/users/${id}`;
