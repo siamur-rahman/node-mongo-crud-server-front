@@ -12,32 +12,29 @@ const UpdateUser = () => {
          .then(res => res.json())
          .then(data => setUser(data));
 
-   })
+   }, [])
 
 
 
-   // const nameRef = useRef();
-   // const emailRef = useRef();
+
+   //handle name change
+   const handleNameChange = e => {
+      const updatedName = e.target.value;
+      const UpdatedUser = { name: updatedName, email: user.email }
+      setUser(UpdatedUser)
+   }
+
+   const handleEmailChange = e => {
+      const updatedEmail = e.target.value;
+      // const UpdatedUser = { ...user };
+      // UpdatedUser.email = updatedEmail;
+      const UpdatedUser = { name: user.name, email: updatedEmail }
+      setUser(UpdatedUser)
+   }
 
    const handleAddUsers = e => {
 
 
-      // const name = nameRef.current.value;
-      // const email = emailRef.current.value;
-
-      // const newUser = { name: name, email: email }
-
-      // fetch('http://localhost:5000/users', {
-      //    method: 'POST',
-      //    headers: {
-      //       'content-type': 'application/json'
-      //    },
-      //    body: JSON.stringify(newUser)
-      // })//feth ses holo
-      //    .then()
-
-
-      // e.preventDefault();
    }
 
    return (
@@ -47,10 +44,9 @@ const UpdateUser = () => {
          <p>{id}</p>
 
          <form onSubmit={handleAddUsers}>
-            {/* <input type="text" ref={nameRef} value={user.name} />
-            <input type="email" ref={emailRef} value={user.email} /> */}
-            <input type="text" value={user.name || ""} />
-            <input type="email" value={user.email || ""} />
+
+            <input type="text" onChange={handleNameChange} value={user.name || ""} />
+            <input type="email" onChange={handleEmailChange} value={user.email || ""} />
             <input type="submit" value="Add" />
          </form>
       </div>
