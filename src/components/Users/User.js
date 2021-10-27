@@ -18,21 +18,40 @@ const Users = () => {
    //Delete an userr
 
    const handleDeleteUser = id => {
-      const url = `http://localhost:5000/users/${id}`;
-      fetch(url, {
-         method: 'DELETE'
+
+      const proced = window.confirm('are you sure , you want to delete');
+      if (proced) {
+         const url = `http://localhost:5000/users/${id}`;
+         fetch(url, {
+            method: 'DELETE'
 
 
-      })
-         .then(res => res.json())
-         .then(data => {
-            if (data.deletedCount > 0) {
-               alert('deleted successfully')
-               const remainingUsers = users.filter(user => user._id !== id)
-               setUsers(remainingUsers);
-            }
-            // setUsers(data) 
-         });
+         })
+            .then(res => res.json())
+            .then(data => {
+               if (data.deletedCount > 0) {
+                  alert('deleted successfully')
+                  const remainingUsers = users.filter(user => user._id !== id)
+                  setUsers(remainingUsers);
+               }
+               // setUsers(data) 
+            });
+      }
+      // const url = `http://localhost:5000/users/${id}`;
+      // fetch(url, {
+      //    method: 'DELETE'
+
+
+      // })
+      //    .then(res => res.json())
+      //    .then(data => {
+      //       if (data.deletedCount > 0) {
+      //          alert('deleted successfully')
+      //          const remainingUsers = users.filter(user => user._id !== id)
+      //          setUsers(remainingUsers);
+      //       }
+      //       // setUsers(data) 
+      //    });
    }
 
    return (
