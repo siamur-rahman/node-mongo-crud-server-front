@@ -15,16 +15,30 @@ const Users = () => {
          .then(data => setUsers(data));
    }, [])
 
+   //Delete an user
+
+   const handleDeleteUser = id => {
+      const url = `http://localhost:5000/users/${id}`;
+      fetch(url, {
+         method: 'DELETE'
+
+
+      })
+         .then()
+
+   }
+
    return (
       <div>
          <h2>This is Users {users.length}</h2>
          <ul>
             {
                users.map(user => <li key={user.id}>
-                  {user.id}  naame:{''} {user.name}{''} <br /> email:{''}{user.email}
+                  {user.id}  name:{''} {user.name}{''} <br /> email:{''}{user.email}
                   <br />
                   <button>Update</button>
-                  <button>X</button>
+                  <button onClick={() => handleDeleteUser(user._id)}>X</button>
+                  {/* <button>X</button> */}
                   <br />
                   <br />
                </li>)
