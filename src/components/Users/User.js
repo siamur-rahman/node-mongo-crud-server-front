@@ -21,7 +21,7 @@ const Users = () => {
          <ul>
             {
                users.map(user => <li key={user.id}>
-                  {user.id}  name:{''} {user.name}{''} <br /> email:{''}{user.email}
+                  {user.id}  naame:{''} {user.name}{''} <br /> email:{''}{user.email}
                   <br />
                   <button>Update</button>
                   <button>X</button>
