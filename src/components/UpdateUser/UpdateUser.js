@@ -49,8 +49,8 @@ const UpdateUser = () => {
          <form onSubmit={handleAddUsers}>
             {/* <input type="text" ref={nameRef} value={user.name} />
             <input type="email" ref={emailRef} value={user.email} /> */}
-            <input type="text" value={user.name} />
-            <input type="email" value={user.email} />
+            <input type="text" value={user.name || ""} />
+            <input type="email" value={user.email || ""} />
             <input type="submit" value="Add" />
          </form>
       </div>
