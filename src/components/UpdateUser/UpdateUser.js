@@ -33,7 +33,20 @@ const UpdateUser = () => {
    }
 
    const handleAddUsers = e => {
+      const url = `http://localhost:5000/users/${id}`
+      fetch(url, {
+         method: 'PUT',
+         headers: {
+            'content-type': 'application/json'
+         },
+         body: JSON.stringify(user)
+      })//feth ses holo
+         .then(res => res.json())
+         .then(data => {
+            console.log(data)
+         })
 
+      e.preventDefault();
 
    }
 
