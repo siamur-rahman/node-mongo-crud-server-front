@@ -43,7 +43,11 @@ const UpdateUser = () => {
       })//feth ses holo
          .then(res => res.json())
          .then(data => {
-            console.log(data)
+            // console.log(data)
+            if (data.modifiedCount > 0) {
+               alert('updated successfully.')
+               setUser({});
+            }
          })
 
       e.preventDefault();
